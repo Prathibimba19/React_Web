@@ -1,0 +1,27 @@
+.header {
+    background-color: #1F0C6C; /* Purple color */
+    color: white; /* White text color */
+    padding: 10px; /* Padding for better spacing */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo
+  {
+      height: 100px;
+      width: 100px;
+  }
+  
+  .nav-items > ul
+  {
+      display: flex;
+  }
+  
+  .nav-items > ul > li
+  {
+      padding: 10px;
+      margin: 10px;
+      list-style-type: none;
+  }
+  

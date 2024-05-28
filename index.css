@@ -5,6 +5,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;
+  }
+
+  .body-container
+  {
+    background-color: #A59031;
+    
   }
 
   .logo
@@ -24,4 +32,18 @@
       margin: 10px;
       list-style-type: none;
   }
+
+  .team-page-heading 
+  {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  
+
+/* Change background color on hover */
+.search:hover {
+    background-color: grey; /* Slightly darker purple */
+}
   

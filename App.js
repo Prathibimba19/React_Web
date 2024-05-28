@@ -23,10 +23,24 @@ const Header = () =>
         )
     }
 
+const Body = () =>
+    {
+        return ( 
+            <>
+            <div className="body-container">
+                <h2 className="team-page-heading">MEET OUR TEAM</h2>
+                <div className="search">Search</div>
+            </div>
+            </>
+        )
+    }
+
 const AppLayout = () =>
     {
-        return(
+        return(<>
             <Header/>
+            <Body/>
+            </>
         )
     }
 

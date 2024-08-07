@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDom from "react-dom/client"
+import { teamList } from "./utils/teamData"
 
 const Header = () =>
     {
@@ -26,6 +27,7 @@ const Header = () =>
 
 
 const Body = () =>
+
     {
         return ( 
             <>
@@ -33,9 +35,9 @@ const Body = () =>
                 <h2 className="team-page-heading">MEET OUR TEAM</h2>
                 <div className="search">Search</div>
                 <div className="team-container">
-                <Team name="Bhavana" role="Artist"/>
-                <Team name="Keerthan" role="Artist"/>
-                
+                {
+                    teamList.map((mem)=>(<Team key={mem.id} memData={mem}/>))
+                }                
                 </div>
             </div>
             </>
@@ -44,11 +46,21 @@ const Body = () =>
 
 const Team = (props) =>
     {
-        const {name, role} = props;
+        const {memData} = props;
+        const {name, role, imageID, branch, year} = memData;
+        const baseurl = "https://github.com/Prathibimba19/React_Web/blob/main/";
+        const rawQuery = ".jpg?raw=true";
+        const fullurl = baseurl + imageID + rawQuery;
+        const [source, setSrc] = useState(fullurl);
+
+        const handleError = () => {
+            setSrc("https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4Ni0yODUtcC5wbmc.png");
+          };
+
         return(
             <>
             <div class="team-card">
-                <img src="https://raw.githubusercontent.com/Prathibimba19/React_Web/main/IMG-20240504-WA0019.jpg" alt="Team Member" class="team-img"/>
+                <img src={source} alt="team-member" class="team-img" onError={handleError}/>
                 <div class="team-info">
                     <h3 class="team-name">{name}</h3>
                     <p class="team-role">{role}</p>

@@ -313,14 +313,7 @@ export const teamList = [
         "imageID" : "vaishnavi",
         "key" : "039"
     },
-    {
-        "name" : "Vaishnavi M Desai",
-        "role" : "Artist",
-        "branch" : "CSE B",
-        "year" : "II",
-        "imageID" : "vaishnavi",
-        "key" : "039"
-    },
+    
     {
         "name" : "Vidhathri Adiga",
         "role" : "Editor",

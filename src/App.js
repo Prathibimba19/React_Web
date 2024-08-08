@@ -29,14 +29,31 @@ const Header = () =>
 const Body = () =>
 
     {
+        const [filtList, setfiltList] = useState(teamList);
+        const [searchText, setSearchText] = useState("");
         return ( 
             <>
             <div className="body-container">
+
                 <h2 className="team-page-heading">MEET OUR TEAM</h2>
-                <div className="search">Search</div>
+                <div className="filter">
+                    <button className="filter-btn" onClick={()=>
+                        {
+                            const filtered = teamList.filter((mem)=> mem.role==="Artist");
+                            setfiltList(filtered);
+                        }
+                    }>Artists</button>
+                </div>
+                <div className="search">
+                    <input type="text" value={searchText} onChange={(e)=>setSearchText(e.target.value)}></input>
+                    <button onClick={()=>{
+                        const filtered = teamList.filter((mem)=>mem.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setfiltList(filtered);
+                    }}>Search</button>
+                </div>
                 <div className="team-container">
                 {
-                    teamList.map((mem)=>(<Team key={mem.id} memData={mem}/>))
+                    filtList.map((mem)=>(<Team key={mem.id} memData={mem}/>))
                 }                
                 </div>
             </div>
